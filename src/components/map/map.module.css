@@ -1,0 +1,41 @@
+.map {
+	position: relative; /* Добавляем позиционирование */
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	z-index: 0; /* Устанавливаем z-index для карты */
+  }
+
+.map::-webkit-scrollbar {
+	width: 5px;
+	height: 8px;
+	background-color: none;
+  }
+
+.map::-webkit-scrollbar-thumb {
+	background: #bebebe;
+  }
+.mapLink {
+	position: absolute; /* Добавляем позиционирование */
+	display: block;
+	width: 100%;
+	height: 300px;
+	opacity: 0.5;
+	z-index: 1; /* Устанавливаем z-index для ссылки */
+	font-size: small;
+	padding:3px 10px;
+	font-weight: 600;
+  }
+
+@media (max-width: 600px) {
+	.map{width: 360px; margin: auto; margin-top: 5px;}
+}
+
+@media (max-width: 400px) {
+	.map{width: 300px; margin: auto; margin-top: 5px;}
+}
+
+.address{
+	font-size: 13px;
+	padding-bottom: 5px;
+}

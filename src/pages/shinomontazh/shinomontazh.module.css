@@ -1,0 +1,39 @@
+.pricesContainer{
+	font-family: 'Roboto';
+	font-weight: 300;
+	margin-bottom: 5px;
+}
+
+.columnName{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: center;
+	padding: 0 15px;
+	height: 30px;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+	background-color: #df0023;
+	color: #ffffff;
+}
+.row{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #df0023;
+}
+
+.row:hover{
+	background-color: #FCFBE3;
+}
+.serviceVal{
+	padding-left: 15px;
+	margin: auto 0;
+	width: 90%;
+}
+.priceVal{
+	background-color: #FCFBE3;
+	width: 105px;
+	height: 30px;
+	padding: 4px;
+	text-align: center;
+}

@@ -1,0 +1,147 @@
+.content{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.pricesContainer{
+	font-family: 'Roboto';
+	font-weight: 300;
+	margin-bottom: 5px;
+}
+
+.columnName{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: center;
+	padding: 0 15px;
+	height: 30px;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+	background-color: #df0023;
+	color: #ffffff;
+}
+.row{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #df0023;
+}
+
+.row:hover{
+	background-color: #FCFBE3;
+}
+.serviceVal{
+	padding-left: 15px;
+	margin: auto 0;
+	width: 90%;
+}
+.priceVal{
+	background-color: #FCFBE3;
+	width: 105px;
+	height: 30px;
+	padding: 4px;
+	text-align: center;
+}
+
+
+.groupName{
+	text-align: center;
+}
+.carDescriptionContainer{
+	width: 700px;
+	text-align: justify;
+	font-size: small;
+	font-weight: 300;
+
+}
+
+.carDescription{
+	text-align: justify;
+	font-size: small;
+	transition: height 0.3s ease
+}
+
+.iconDropdown{
+	display: none;
+}
+.expandCheckbox {
+	display: none;
+  }
+.wrapper{
+	display: flex;
+	flex-direction: row-reverse;
+	margin: 10px 0;
+}
+
+.carSelector{
+	display: flex;
+	justify-content: space-around;
+    align-items: flex-end;
+	height: 110px;
+	width: 100%;
+
+}
+
+.carOption{
+	display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+	width: 175px;
+	height: 100%;
+	border: 1px solid #ddd;
+    border-radius: 4px;
+	padding: 10px;
+	cursor: pointer;
+	opacity: 80%;
+}
+
+
+.carOptionSelected{
+	background-color: #ffcc0b;
+	opacity: 100%;
+}
+
+img{
+	width: 150px;
+}
+
+.selectContainer{
+	width: 270px;
+	margin-right: 10px;
+}
+
+h4.nameSelector{
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+.customSelect {
+  width: 200px;
+  height: 30px;
+  background-color: #f0f0f0;
+  margin-bottom: 1em;
+  padding: .25em;
+  border: 0;
+  border-bottom: 2px solid currentcolor;
+  border-radius: 5px;
+  border-bottom-color: #ffcc0b;
+  &:focus, &:active {
+    outline: 0;
+    border-bottom-color: red;
+  }
+}
+  @media (max-width: 600px) {
+	img{width: 80px;}
+	.groupName{font-size: small}
+	.content{width: 100%}
+	.carSelector{overflow: scroll; height: 65px;}
+	.carOption{border: none;}
+	.wrapper{flex-direction: column;}
+	.pricesContainer{font-size: small;}
+	.iconDropdown{display: block; font-size: 20px; color: #ffcc0b;}
+	.carDescriptionContainer{margin-bottom: 20px; font-size: xx-small;  width: 100%;}
+	.carDescription{margin: -20px 0 0 25px;height: 0px; overflow: hidden; width: 92%;}
+	.expandCheckbox:checked ~ .carDescription {
+		height: 90px; /* Высота родителя после клика */
+		overflow: scroll;
+	  }
+}

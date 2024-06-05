@@ -1,0 +1,51 @@
+#footer { padding: 10px; background:#ffffff;  Height:80px; border-radius: 0 0 6px 6px; font-size: 10px;}
+h3{margin: 0;}
+#g { height:32px;float:right; margin: 12px 3px; position:relative; right:10px;}
+
+.ypage{ width:32px; height:32px; background-color: #ffffff; background: url(../../assets/images/yandex.png) 100% 100% no-repeat ; background-size: cover;  float:right;-webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */}
+.ypage:hover  {-webkit-filter: none;  -moz-filter: none;  -ms-filter: none;  -o-filter: none;  filter: none;  filter: none; /* IE 6-9 */}
+.ypage:active {box-shadow: 0 0 400px rgba(0, 0, 0, .2) inset;}
+
+
+
+
+.vpage{ width:32px; height:32px; background-color: #ffffff; background: url(../../assets/images/vk.png) 100% 100% no-repeat ; background-size: cover;  float:right;-webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */}
+.vpage:hover  {-webkit-filter: none;  -moz-filter: none;  -ms-filter: none;  -o-filter: none;  filter: none;  filter: none; /* IE 6-9 */}
+.vpage:active {box-shadow: 0 0 400px rgba(0, 0, 0, .2) inset;}
+
+.WhatsApp{ width:32px; height:32px; background-color: #ffffff; background: url(../../assets/images/WhatsApp.png) 100% 100% no-repeat ; background-size: cover;  float:right;-webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */}
+.WhatsApp:hover  {-webkit-filter: none;  -moz-filter: none;  -ms-filter: none;  -o-filter: none;  filter: none;  filter: none; /* IE 6-9 */}
+.WhatsApp:active {box-shadow: 0 0 400px rgba(0, 0, 0, .2) inset;}
+
+.Telegram{ width:32px; height:32px; background-color: #ffffff; background: url(../../assets/images/Telegram.png) 100% 100% no-repeat ; background-size: cover;  float:right;-webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */}
+.Telegram:hover  {-webkit-filter: none;  -moz-filter: none;  -ms-filter: none;  -o-filter: none;  filter: none;  filter: none; /* IE 6-9 */}
+.Telegram:active {box-shadow: 0 0 400px rgba(0, 0, 0, .2) inset;}
+
+.g2page{ width:67px; height:32px; background-color: #ffffff; background: url(../../assets/images/2gis.png) 100% 100% no-repeat ; background-size: cover;  float:right;-webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */}
+.g2page:hover  {-webkit-filter: none;  -moz-filter: none;  -ms-filter: none;  -o-filter: none;  filter: none;  filter: none; /* IE 6-9 */}
+.g2page:active {box-shadow: 0 0 400px rgba(0, 0, 0, .2) inset;}

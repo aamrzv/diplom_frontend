@@ -1,0 +1,163 @@
+.header{
+  position: sticky;
+  top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  column-gap: 20px;
+  min-height: var(--header-height);
+  padding: 15px 32px;
+  background-color: #df0023;
+  z-index: 1;
+}
+
+
+.logo{ width: 100px; aspect-ratio: 1;}
+
+
+.svgContainer {
+	fill: #df0023;
+	top: 0;
+    left: -25px;
+	width: 105%;
+	height: 100%;
+	position: absolute;
+	z-index: -1
+}
+
+.wrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.header h1{
+	color: #FFFFFF;
+    margin: 0 0 5px 0;
+}
+
+.header h3{
+	color: #FFFFFF;
+    margin:0;
+	font-weight: 400;
+}
+
+.btnWrapper{
+	display: flex;
+	justify-content: space-between;
+    width: 220px;
+}
+
+.btn{
+	font-size: small;
+    font-weight: 300;
+    background-color: #eae6e6;
+    height: 25px;
+    border-radius: 5px;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+}
+
+
+.menuIcon{
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+}
+.menuIcon span{
+	display: block;
+	height: 3px;
+	background-color: black;
+	width: 30px;
+	margin: 3px;
+	transition: all 0.3s
+}
+
+.menuIconActive span:nth-child(1){
+	transform: translate(6px, -1px) rotate(45deg);
+	transform-origin: left top;
+}
+.menuIconActive span:nth-child(2){
+	transform: scale(0)
+}
+.menuIconActive span:nth-child(3){
+	transform: translate(-3px, -20px) rotate(-45deg);
+	transform-origin: right bottom;
+}
+
+	.menuIcon:hover {
+		fill: #ffcc0b;
+		color: #ffcc0b;
+	}
+
+.optionIcon{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;;
+    align-items: center;
+	color: #FFFFFF;
+	font-size: 30px;
+	width: 70px;
+	margin-right: 10px;
+	cursor: pointer;
+	user-select: none;
+	transition: height 0.3s ease;
+
+}
+
+.optionIcon:hover {
+	color: #ffcc0b;
+}
+
+.optionIcon div{
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 500;
+	transition: height 0.3s ease}
+
+
+@media (max-width: 600px) {
+	.header{top: 0; padding:10px; column-gap: 5px;}
+	.header h1{font-size: 20px;}
+	.header h3{font-size: 12px;}
+	.logo{ width: 70px;}
+	.btnWrapper{width: 200px; }
+	.btn{font-size: 12px;}
+	.optionIcon {width: 50px;}
+	.optionIcon div{font-size: 10px; }
+	.menuIcon{font-size: 10px;}
+}
+
+
+.controlPanel{
+	position:absolute;
+	width: 20%;
+	top:95%;
+	right:0px;
+	display: flex;
+	flex-direction:column;
+	justify-content: flex-start;
+	background-color: #df0023;
+	max-height: 0; /* Начальная высота 0, чтобы меню было скрыто */
+	padding: 0 18px;
+	overflow: hidden; /* Скрытие содержимого, которое выходит за пределы максимальной высоты */
+	transition:max-height 0.5s ease; /* Плавное изменение высоты за 0.3 секунды */
+}
+
+.controlPanelActive{
+	max-height: 300px; /* Максимальная высота, достаточная для показа всех пунктов меню */
+}
+
+.controlPanel div, .controlPanel a{cursor: pointer; color: #ececec; display: flex; flex-direction: row; align-items: center; margin-bottom: 18px; font-size: 22px}
+.controlPanel div:hover, .controlPanel a:hover{background-color: #d30322;}
+.controlPanel p{margin-left: 5px; font-size: 16px}
+
+@media (max-width: 600px) {.controlPanel{width: 40%; }}

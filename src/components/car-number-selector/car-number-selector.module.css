@@ -1,0 +1,51 @@
+h4.nameSelector{
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.nameCar{margin-top: 10px;}
+.searchNumber{
+  width: 100%;
+  height: 30px;
+  background-color: #f0f0f0;
+  margin-bottom: 2px;
+  padding: .25em;
+  border: 0;
+  border-bottom: 2px solid currentcolor;
+  border-radius: 5px;
+  border-bottom-color: #ffcc0b;
+}
+
+.selectContainer{
+	width: 140px;
+}
+
+.selectWrapper{
+	width: 100%;
+	height: 80px;
+	overflow: auto;
+}
+
+.selectWrapper::-webkit-scrollbar {
+	width: 5px;
+	height: 8px;
+	background-color: none;
+  }
+
+  .selectWrapper::-webkit-scrollbar-thumb {
+	background: #bebebe;
+  }
+
+.optionItem{
+	border: 1px solid black;
+	margin-bottom: 2px;
+	border-radius: 4px;
+	padding: 3px 10px;
+	cursor: pointer;
+	user-select: none
+}
+
+.optionSelectedItem{
+	background-color: #ffcc0b;
+}
+@media (max-width: 600px) {.content{margin-left: 20px;}}

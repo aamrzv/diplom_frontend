@@ -1,0 +1,151 @@
+
+@font-face{
+	font-family: 'Roboto';
+	src: url('./assets/fonts/Roboto-Regular.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face{
+	font-family: 'Roboto';
+	src: url('./assets/fonts/Roboto-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+body {
+	font-family: Roboto;
+	background-color: #1b5758;
+}
+:root{
+	--header-height: 90px;
+	--app-max-width: 980px
+}
+/**
+  Нормализация блочной модели
+ */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+   border-width: 0;
+   border-style: solid;
+   border-color: #e5e7eb;
+
+ }
+
+
+ /**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+ :where(ul, ol):where([class]) {
+   padding-left: 0;
+ }
+
+ /**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+ body,
+ :where(blockquote, figure):where([class]) {
+   margin: 0;
+ }
+
+ /**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+ :where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+   margin-block: 0;
+ }
+
+ :where(dd[class]) {
+   margin-left: 0;
+ }
+
+ :where(fieldset[class]) {
+   margin-left: 0;
+   padding: 0;
+   border: none;
+ }
+
+ /**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+ :where(ul[class]) {
+   list-style: none;
+ }
+
+ /**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+ p {
+   --paragraphMarginBottom: 12px;
+
+   margin-block: 0;
+ }
+
+ /**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+ p:where(:not([class]):not(:last-child)) {
+   margin-bottom: var(--paragraphMarginBottom);
+ }
+
+
+ /**
+   Упрощаем работу с изображениями
+  */
+ img {
+   display: block;
+ }
+
+ a{
+	text-decoration: none;
+ }
+
+
+ .content-page{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #FFFFFF;
+	padding: 10px;
+	width: 100%;
+	min-height: 70vh;
+	overflow: scroll;
+}
+
+.content-page::-webkit-scrollbar {
+	width: 5px;
+	height: 8px;
+	background-color: none;
+  }
+
+  .content-page::-webkit-scrollbar-thumb {
+	background: #bebebe;
+  }
+
+  @media (max-width: 600px) {
+	.content-page{
+		min-height: 100vh;
+		overflow: scroll;
+	}
+  }

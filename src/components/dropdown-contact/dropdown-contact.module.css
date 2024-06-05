@@ -1,0 +1,44 @@
+.contactInfo{
+	background-color: white;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 10px;
+	position: absolute;
+	top: 20px;
+	left:-10px;
+	z-index: 1;
+}
+
+.wrapper{
+	margin-bottom: 7px;
+}
+
+.contactInfo a{color: black; font-size: 15px; display: flex; align-items: center;}
+
+.contactInfo a:hover{color: #5b5bf1;}
+
+.contactInfo i{color: black; font-size: 25px;}
+.contactInfo p{white-space: nowrap;}
+
+.icon{
+	padding-top: 5px;
+	margin: 0 5px;
+	font-size: 35px;
+	color: #fc3f1d
+}
+
+.contact{
+	position: relative;
+	width: 150px;
+	height: 50px;
+	background-color: #f6f6f6;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	font-size: small;
+	cursor: pointer;
+	user-select: none;
+	font-weight: 700;
+}
+
+
