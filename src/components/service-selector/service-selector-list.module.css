@@ -1,0 +1,68 @@
+.selectorContainer{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	width: 100%;
+
+}
+
+.deleteBtn{
+    margin-left: 5px;
+    width: 30px;
+    display: flex;
+    height: 31px;
+    background-color: #df0023;
+    color: aliceblue;
+    font-size: 27px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.total{
+    margin: 10px 0 20px 0;
+    display: flex;
+    font-size: 20px;
+    width: 300px;
+    align-items: center;
+    justify-content: flex-end;
+}
+.total span{
+	margin-left: 10px;
+	min-width:60px;
+	background-color: #ffcc0b;
+	padding: 5px 5px;
+	border-radius: 2px;
+	text-align:center;
+    font-size:18px ;
+}
+
+.saveBtn{
+	background-color: #f8f8f8;
+    display: flex;
+	margin-left: 10px;
+    width: 50px;
+    height: 32px;
+    border-radius: 4px;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 600;
+    font-size: x-large;
+    color: #468c05;
+    cursor: pointer;
+    border: 2px solid #468c05;
+}
+
+.addBtn{
+	background-color: #468c05;
+    display: flex;
+    width: 150px;
+    height: 30px;
+    border-radius: 4px;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 600;
+    color: aliceblue;
+	cursor: pointer;
+}

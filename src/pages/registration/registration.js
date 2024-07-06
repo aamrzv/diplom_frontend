@@ -4,11 +4,11 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
 import { ACTION_TYPE } from "../../actions";
-import { getUserLogin } from "../../api/get-user";
-import styles from "./authorization.module.css";
+import { createUser } from "../../api";
+import styles from "./registration.module.css";
 import { useState } from "react";
 
-const authFormSchema = yup.object().shape({
+const regFormSchema = yup.object().shape({
 	login: yup
 		.string()
 		.required("Заполните логин")
@@ -27,8 +27,12 @@ const authFormSchema = yup.object().shape({
 		)
 		.min(6, "Неверно заполнен пароль. Минимум 3 символа")
 		.max(30, "Неверно заполнен пароль. Максимум 30 символов"),
+	passcheck: yup
+		.string()
+		.required("Заполните повтор пароля")
+		.oneOf([yup.ref("password"), null], "Повтор пароля не совпадает"),
 });
-export const Authorization = () => {
+export const Registration = () => {
 	const [serverError, setServerError] = useState(null);
 	const dispatch = useDispatch();
 	const {
@@ -37,14 +41,14 @@ export const Authorization = () => {
 		formState: { errors },
 	} = useForm({
 		defaultValues: { login: "", password: "" },
-		resolver: yupResolver(authFormSchema),
+		resolver: yupResolver(regFormSchema),
 		mode: "all",
 	});
 	const navigate = useNavigate();
 	const onSubmit = (data) => {
 		// Обработка отправки данных формы
 		dispatch({ type: ACTION_TYPE.LOADING_START });
-		getUserLogin(data)
+		createUser(data)
 			.then((response) => {
 				if (!response) {
 					// Если статус не в диапазоне 200-299, считаем это ошибкой
@@ -66,7 +70,7 @@ export const Authorization = () => {
 	return (
 		<div className={styles.content}>
 			<div className={styles.wrapper}>
-				<h2 className={styles.nameForm}>Авторизация</h2>
+				<h2 className={styles.nameForm}>Регистрация</h2>
 				<form
 					className={styles.authForm}
 					onSubmit={handleSubmit(onSubmit)}
@@ -101,13 +105,28 @@ export const Authorization = () => {
 							{errors.password?.message}
 						</div>
 					</div>
+					<div>
+						<label>Подтверждение пароля:</label>
+						<div className={styles.authInput}>
+							<i className="bx bx-lock-alt"></i>
+							<input
+								type="password"
+								placeholder="Пароль..."
+								{...register("passcheck")}
+								onChange={() => setServerError(null)}
+							/>
+						</div>
+						<div className={styles.formErr}>
+							{errors?.passcheck?.message}
+						</div>
+					</div>
 					<button className={styles.btn} type="submit">
-						Войти
+						Зарегистрироваться
 					</button>
 				</form>
 			</div>
-			<Link to="/registration" className={styles.optionIcon}>
-				регистрация
+			<Link to="/authorization" className={styles.optionIcon}>
+				авторизация
 			</Link>
 		</div>
 	);

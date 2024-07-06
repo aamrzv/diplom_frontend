@@ -1,26 +1,52 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ACTION_TYPE } from "../../actions";
-import { selectCars } from "../../selectors";
+import {
+	selectCars,
+	selectSelectedCar,
+	selectSelectedContractor,
+} from "../../selectors";
 import styles from "./car-number-selector.module.css";
 
-export const CarNumberSelector = ({ selectedContractor }) => {
+export const CarNumberSelector = ({ contractorId }) => {
 	const [isSelectCarNumber, setIsSelectCarNumber] = useState(false);
 	const dispatch = useDispatch();
 	const stateCars = useSelector(selectCars);
 	const [cars, setCars] = useState([]);
 	const [filteredCars, setFilteredCars] = useState([]);
 	const [searchInput, setSearchInput] = useState("");
+	const selectedContractor = useSelector(selectSelectedContractor);
+	const selectedCar = useSelector(selectSelectedCar);
+
+	useEffect(() => {
+		if (selectedCar) {
+			setIsSelectCarNumber(true);
+		}
+	}, []);
 
 	useEffect(() => {
 		setIsSelectCarNumber(false);
-	}, [selectedContractor]);
+	}, [selectedContractor, contractorId]);
 
 	useEffect(() => {
 		if (selectedContractor) {
 			setCars(
 				stateCars.filter(
-					(stateCar) => stateCar.contractor === selectedContractor,
+					(stateCar) =>
+						stateCar.contractor ===
+						selectedContractor.contractorName,
+				) || [
+					{
+						carNumber: "Выберете контрагента",
+						carId: null,
+						isSelect: false,
+					},
+				],
+			);
+		} else if (contractorId) {
+			setCars(
+				stateCars.filter(
+					(stateCar) => stateCar.contractorId === contractorId,
 				) || [
 					{
 						carNumber: "Выберете контрагента",
@@ -41,7 +67,7 @@ export const CarNumberSelector = ({ selectedContractor }) => {
 				],
 			);
 		}
-	}, [stateCars, selectedContractor]);
+	}, [stateCars, selectedContractor, contractorId]);
 
 	useEffect(() => {
 		if (searchInput.trim() === "") {

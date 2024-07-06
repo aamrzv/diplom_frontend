@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectWheelSizes, selectCarGroups } from "../../selectors";
 import { ACTION_TYPE } from "../../actions";
@@ -22,11 +22,17 @@ const carSVG = {
 
 export const CarGroupSelector = () => {
 	const carGroups = useSelector(selectCarGroups);
-	const [selectedCar, setSelectedCar] = useState({});
+	const [selectedCar, setSelectedCar] = useState(
+		carGroups.find((carGroup) => carGroup.isSelect) || {},
+	);
 	const wheelSizes = useSelector(selectWheelSizes);
 	const [selectedWheelSizes, setSelectedWheelSizes] = useState("");
 	const dispatch = useDispatch();
-
+	useEffect(() => {
+		setSelectedWheelSizes(
+			wheelSizes.find((item) => item.isSelect)?.wheelSizeId || "",
+		);
+	}, [wheelSizes]);
 	const handleCarSelect = (carGroupId, carGroupName, carGroupDescription) => {
 		setSelectedCar({ carGroupId, carGroupName, carGroupDescription });
 		dispatch({
@@ -45,7 +51,7 @@ export const CarGroupSelector = () => {
 		dispatch({
 			type: ACTION_TYPE.SET_WHEEL_SIZES_IS_SELECT,
 			payload: {
-				wheelSizeId: event.target.value,
+				wheelSizeId: Number(event.target.value),
 				isSelect: true,
 			},
 		});

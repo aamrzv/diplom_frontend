@@ -5,6 +5,7 @@ const carsInitialState = [
 		carId: null,
 		carNumber: null,
 		contractor: null,
+		contractorId: null,
 		clientId: null,
 		car: null,
 		isSelect: null,

@@ -11,8 +11,14 @@ import {
 	OrderCreater,
 	OrdersList,
 	Authorization,
+	OrdersDetail,
+	RimRepair,
+	OilСhange,
+	BrakePads,
+	ChassisRepair,
+	Registration,
 } from "./pages";
-import { Header, Menu, Footer, Modal } from "./components";
+import { Header, Menu, Footer, Modal, ServiceSelectorList } from "./components";
 import styles from "./App.module.css";
 import { checkUserSessionAsync } from "./actions/check-user-session-async";
 import { selectIsLoading } from "./selectors";
@@ -66,25 +72,25 @@ export const App = () => {
 					element={<OrdersList />}
 				></Route>
 				<Route
+					path="/orders/contractor/:contractorId/:orderId"
+					element={<OrdersDetail />}
+				></Route>
+				<Route
 					path="/authorization"
 					element={<Authorization />}
 				></Route>
+				<Route path="/registration" element={<Registration />}></Route>
 				<Route path="/tyre_service" element={<Shinomontazh />}></Route>
+				<Route path="/oil_сhange" element={<OilСhange />}></Route>
+				<Route path="/brake_pads" element={<BrakePads />}></Route>
+				<Route path="/rim_repair" element={<RimRepair />}></Route>
 				<Route
-					path="/oil_сhange"
-					element={<Loader> Замена масла</Loader>}
-				></Route>
-				<Route
-					path="/brake_pads"
-					element={<div> Замена колодок</div>}
-				></Route>
-				<Route
-					path="/rim_repair"
-					element={<div> Ремонт дисков</div>}
+					path="/edit_order"
+					element={<ServiceSelectorList />}
 				></Route>
 				<Route
 					path="/chassis_repair"
-					element={<div>Ремонт ходовой</div>}
+					element={<ChassisRepair />}
 				></Route>
 			</Routes>
 			<Menu />

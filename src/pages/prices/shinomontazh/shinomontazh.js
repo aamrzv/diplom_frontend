@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CarGroupSelector } from "../../components";
+import { CarGroupSelector } from "../../../components";
 import {
 	selectCarGroups,
 	selectPrices,
 	selectWheelSizes,
-} from "../../selectors";
-import { ACTION_TYPE, readPricesAsync } from "../../actions";
-import styles from "./shinomontazh.module.css";
+} from "../../../selectors";
+import { ACTION_TYPE, readPricesAsync } from "../../../actions";
 
 export const Shinomontazh = () => {
 	const stetePrices = useSelector(selectPrices);
@@ -64,53 +63,65 @@ export const Shinomontazh = () => {
 		return multipliedTotalPrices;
 	};
 	return (
-		<div className="content-page">
+		<div className="content-page content-page-height-for-user">
 			<h2>Стоимость услуг на шиномонтажные работы</h2>
 			<CarGroupSelector />
-			<div className={styles.pricesContainer}>
-				{prices.length !== 0 ? (
-					<div className={styles.columnName}>
-						<div>Вид услуги</div>
-						<div>Стоимость</div>
-					</div>
-				) : (
-					""
-				)}
-				{sumPrices([1, 2, 3, 4]) === 0 ? (
-					""
-				) : (
-					<div>
-						<div className={styles.row}>
-							<div className={styles.serviceVal}>
-								Комплекс 1: Сезонная замена шин.
-							</div>
-							<div className={styles.priceVal}>
-								{sumPrices([1, 2, 3, 4])}
-							</div>
-						</div>
-						<div className={styles.row}>
-							<div className={styles.serviceVal}>
-								Комплекс 2: Смена колес в сборе.
-							</div>
-							<div className={styles.priceVal}>
-								{sumPrices([1, 4])}
-							</div>
-						</div>
-					</div>
-				)}
-				{prices.map(({ serviceName, serviceId, price, priceId }) => {
-					return (
-						<div key={priceId} className={styles.row}>
-							<div key={serviceId} className={styles.serviceVal}>
-								{serviceName}
-							</div>
-							<div key={priceId} className={styles.priceVal}>
-								{price}
-							</div>
-						</div>
-					);
-				})}
-			</div>
+			<table className="table-price__prices-container">
+				<tbody>
+					{prices.lengtd !== 0 ? (
+						<tr className="table-price__column-name">
+							<td className="table-price__service-val">
+								Вид услуги
+							</td>
+							<td className="table-price__head-val">Стоимость</td>
+						</tr>
+					) : (
+						""
+					)}
+					{sumPrices([1, 2, 3, 4]) === 0 ? (
+						""
+					) : (
+						<>
+							<tr className="table-price__row">
+								<td className="table-price__service-val">
+									Комплекс 1: Сезонная замена шин.
+								</td>
+								<td className="table-price__price-val">
+									{sumPrices([1, 2, 3, 4])}
+								</td>
+							</tr>
+							<tr className="table-price__row">
+								<td className="table-price__service-val">
+									Комплекс 2: Смена колес в сборе.
+								</td>
+								<td className="table-price__price-val">
+									{sumPrices([1, 4])}
+								</td>
+							</tr>
+						</>
+					)}
+					{prices.map(
+						({ serviceName, serviceId, price, priceId }) => {
+							return (
+								<tr key={priceId} className="table-price__row">
+									<td
+										key={serviceId}
+										className="table-price__service-val"
+									>
+										{serviceName}
+									</td>
+									<td
+										key={priceId}
+										className="table-price__price-val"
+									>
+										{price}
+									</td>
+								</tr>
+							);
+						},
+					)}
+				</tbody>
+			</table>
 		</div>
 	);
 };

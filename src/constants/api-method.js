@@ -6,10 +6,13 @@ export const API_METHOD = {
 	DIMENSIONS: "/get?dimension=",
 	CREATE_ORDER: "/insert_order",
 	USER_LOGIN: "/login",
+	USER_REGISTER: "/register",
 	CHECK_USER_SESSION: "/check_user_session",
 	GET_ORDERS_GROUP_LIST: "/get_orders_group_list",
 	GET_ORDERS_LIST: "/get_orders_list",
-	GET_ORDER_DETAIL: "/get_order_detail",
+	GET_ORDER_DETAIL: "/get_order_detail?order_id=",
+	UPDATE_ORDER: "/update_order",
+	DELETE_ORDER: "/delete_order?order_id=",
 };
 
 export const DIMENSIONS_NAME = {

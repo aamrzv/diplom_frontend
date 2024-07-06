@@ -6,6 +6,7 @@ import { selectServices } from "../../selectors";
 import styles from "./serviceSelector.module.css";
 
 export const ServiceSelector = ({
+	data,
 	selectorId,
 	priceValue,
 	onSelect,
@@ -13,9 +14,14 @@ export const ServiceSelector = ({
 }) => {
 	const [selectedServiceId, setSelectedServiceId] = useState();
 	const [availableServices, setAvailableServices] = useState([]);
-	const [value, setalue] = useState(1);
+	const [value, setValue] = useState(1);
 	const services = useSelector(selectServices);
 	const dispatch = useDispatch();
+	//console.log("data", data);
+	//console.log("selectorId", selectorId);
+	//console.log("priceValue", priceValue);
+	//console.log("onSelect", onSelect);
+	//console.log("selectedServices", selectedServices);
 	useEffect(() => {
 		const updatedFilteredServices = services.filter(
 			(service) =>
@@ -26,7 +32,10 @@ export const ServiceSelector = ({
 				),
 		);
 		setAvailableServices(updatedFilteredServices);
-	}, [services, selectedServices, selectorId]);
+		//console.log(data);
+		setValue(data?.value || value);
+		setSelectedServiceId(data?.serviceId);
+	}, [services, selectedServices, selectorId, data]);
 
 	const handleChange = (event) => {
 		dispatch({
@@ -42,12 +51,12 @@ export const ServiceSelector = ({
 	};
 	const onDownVal = () => {
 		if (value > 1) {
-			setalue(value - 1);
+			setValue(value - 1);
 			onSelect(selectedServiceId, value - 1);
 		}
 	};
 	const onUpVal = () => {
-		setalue(value + 1);
+		setValue(value + 1);
 		onSelect(selectedServiceId, value + 1);
 	};
 

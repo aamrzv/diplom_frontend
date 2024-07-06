@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import styles from "./orders-list.module.css";
-import { getOdersListAsync } from "../../../actions";
-import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { ButtonPagination } from "../../../components";
+import { getOdersListAsync } from "../../../actions";
+import styles from "./orders-list.module.css";
 
 export const OrdersList = () => {
 	const [orderList, setOrderList] = useState([]);
@@ -60,7 +60,10 @@ export const OrdersList = () => {
 								/>
 							) : null}
 						</div>
-						<Link to="/" className="bx bx-edit"></Link>
+						<Link
+							to={`${order.orderId}`}
+							className="bx bx-edit"
+						></Link>
 					</div>
 				))}
 			</div>

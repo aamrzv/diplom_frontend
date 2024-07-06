@@ -4,14 +4,6 @@
 	height: 58vh;
 }
 
-.info{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 15px 30px 10px 30px;
-	font-weight: 300;
-
-}
 .wraper{
 	display: flex;
 	flex-wrap: wrap;
@@ -32,13 +24,11 @@
 
 
 @media (max-width: 600px){
-	.info{padding: 10px 20px; text-align: justify;}
+
 	.content{height: 85vh;}
 }
 
-@media (max-width: 400px){
-	.info{font-size: 13px;}
-}
+
 
 
 li{padding-left: 30px;}

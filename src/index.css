@@ -15,7 +15,7 @@
 	font-display: swap;
 }
 body {
-	font-family: Roboto;
+	font-family: 'Roboto';
 	background-color: #1b5758;
 }
 :root{
@@ -122,6 +122,7 @@ body {
  }
 
 
+
  .content-page{
 	display: flex;
 	flex-direction: column;
@@ -133,19 +134,80 @@ body {
 	overflow: scroll;
 }
 
+.content-page-height-for-user{min-height: 58vh;}
+
 .content-page::-webkit-scrollbar {
 	width: 5px;
 	height: 8px;
 	background-color: none;
   }
 
-  .content-page::-webkit-scrollbar-thumb {
+.content-page::-webkit-scrollbar-thumb {
 	background: #bebebe;
   }
 
+.info{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px 30px 10px 30px;
+	font-weight: 300;
+}
+.info li{text-align:left}
   @media (max-width: 600px) {
+	.info{padding: 10px 20px; text-align: justify;}
 	.content-page{
-		min-height: 100vh;
+		min-height: 81vh;
 		overflow: scroll;
 	}
   }
+  @media (max-width: 400px){
+	.info{font-size: 13px;}
+}
+  .table-price__prices-container{
+	font-weight: 300;
+	margin-bottom: 5px;
+	width: 95%;
+	border-spacing: 0;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+  .table-price__column-name{
+	text-align: left;
+	height: 35px;
+	background-color: #df0023;
+	color: #ffffff;
+}
+
+.table-price__row{
+	height: 30px;
+}
+
+.table-price__row td{
+	border-bottom: 1px solid #df0023;
+}
+
+.table-price__head-val{
+	text-align: center;
+	padding: 0 5px;
+}
+.table-price__row:hover{
+	background-color: #FCFBE3;
+}
+.table-price__service-val{
+	padding-left: 15px;
+	text-align: left
+}
+.table-price__price-val{
+	background-color: #FCFBE3;
+	text-align: center;
+}
+
+.table-price__footnote{
+	width: 90%;
+	font-weight: 300;
+	font-size: small;
+	text-align: justify;
+}
+
+

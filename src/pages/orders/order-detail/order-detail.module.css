@@ -1,0 +1,110 @@
+.orderList{
+	display: flex;
+    flex-direction: column;
+}
+
+.rowHead{
+	background-color: #df0023;
+	color: #f0f8ff;
+}
+.row{
+	display: flex;
+	font-size: 13px;
+	font-weight: 400;
+	border: 1px solid #000;
+	border-radius: 4px;
+	margin: 2px;
+	padding: 5px 5px;
+	transition: all 0.7s
+}
+
+.row:hover {background-color: #ffcc0b;}
+
+.row div:nth-child(1){
+	width: 20px;
+}
+.row div:nth-child(2){
+	margin: auto;
+	text-align: center;
+	width: 250px;
+}
+.row div:nth-child(3){
+	margin: auto;
+	text-align: center;
+	width: 60px;
+}
+
+.row div:nth-child(4){
+	margin: auto;
+	text-align: center;
+	width: 70px;
+}
+.row div:nth-child(5){
+	margin: auto;
+	text-align: center;
+	width: 80px;
+}
+
+@media (max-width: 600px) {
+	.row div:nth-child(2){width: 150px;}
+}
+
+.btnContainer{
+	display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.left{
+	margin-left: auto;
+	margin-right:10%;
+}
+@media (max-width: 600px) {
+	.left{margin-right: 0;}
+}
+.left i{
+	font-size: 40px;
+	color: #df0023;
+}
+
+.totalSumOrder{
+	padding: 4px 18px 0 0;
+	width: 100%;
+	text-align: end;
+	font-size: 15px;
+}
+
+.btn{
+	margin: 10px 0 2px 2px;
+	width: 170px;
+	height: 35px;
+    justify-content: center;
+  	border-radius: 4px;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.btn i{font-size: medium; padding-right: 3px;}
+
+
+.btnAccept{
+	background-color: #ffcc0b;
+	font-weight: 600;
+}
+
+.btnBack{
+	color: #f0f8ff;
+	display: flex;
+	align-items: center;
+	background-color: #137e05;
+	padding: 0 8px;
+}
+
+.btnBack i{font-size: large; padding-right: 3px;}
+
+.btnDelete{
+	color: #f0f8ff;
+	font-weight: 600;
+	background-color: #df0023;
+}
+

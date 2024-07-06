@@ -10,8 +10,9 @@ export const SelectCustom = ({
 }) => {
 	const [selectValue, setSelectValue] = useState("");
 	useEffect(() => {
-		setSelectValue("");
+		setSelectValue(reset);
 	}, [reset]);
+
 	const handleChange = (event) => {
 		const newValue = event.target.value;
 		setSelectValue(newValue);

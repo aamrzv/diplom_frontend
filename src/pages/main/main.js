@@ -4,7 +4,7 @@ import styles from "./main.module.css";
 export const Main = () => {
 	return (
 		<div className={styles.content}>
-			<div className={styles.info}>
+			<div className="info">
 				<p>
 					Мы предлагаем широкий спектр услуг по шиномонтажу и ремонту
 					автомобилей. Наши опытные специалисты готовы выполнить

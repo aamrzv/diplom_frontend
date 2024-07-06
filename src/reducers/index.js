@@ -6,3 +6,4 @@ export * from "./prices-reducer";
 export * from "./contractors-reducer";
 export * from "./cars-reducer";
 export * from "./user-reducer";
+export * from "./order-reducer";

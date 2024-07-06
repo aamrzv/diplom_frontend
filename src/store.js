@@ -9,6 +9,7 @@ import {
 	contractorsReducer,
 	carsReducer,
 	userReducer,
+	orderReducer,
 } from "./reducers";
 
 const reducer = combineReducers({
@@ -19,6 +20,7 @@ const reducer = combineReducers({
 	contractors: contractorsReducer,
 	carGroups: carGroupsReducer,
 	wheelSizes: wheelSizesReducer,
+	orderDetail: orderReducer,
 	appOptions: appReducer,
 });
 
