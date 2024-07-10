@@ -1,5 +1,5 @@
-//export const API_URL = "http://192.168.0.5:5000";
-export const API_URL = "http://aamrzv.ru:5000";
+export const API_URL = "http://192.168.0.5:5000";
+//export const API_URL = "http://aamrzv.ru:5000";
 
 export const API_METHOD = {
 	PRICES: "/get_prices?",

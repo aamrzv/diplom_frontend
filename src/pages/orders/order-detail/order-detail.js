@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link, Navigate } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
 	ACTION_TYPE,
@@ -16,6 +17,7 @@ import {
 	selectWheelSizes,
 } from "../../../selectors";
 import { CarGroupSelector, ServiceSelectorList } from "../../../components";
+import { ROLE } from "../../../constants/role";
 
 export const OrdersDetail = () => {
 	const [isEditing, setIsEditing] = useState(false);
@@ -84,7 +86,9 @@ export const OrdersDetail = () => {
 			),
 		[wheelSizes, order],
 	);
-
+	if (user.userRole === ROLE.GUEST) {
+		return <Navigate to="/"></Navigate>;
+	}
 	return (
 		<div className="content-page">
 			<p>Акт № {order?.actNumber}</p>

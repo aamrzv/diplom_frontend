@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import styles from "./orders.module.css";
 import { getOdersGroupListAsync } from "../../../actions";
-import { useDispatch } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Outlet, Navigate } from "react-router-dom";
+import { ROLE } from "../../../constants/role";
+import { selectUser } from "../../../selectors";
 
 export const Orders = () => {
 	const [orderList, setOrderList] = useState([]);
+	const user = useSelector(selectUser);
+
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getOdersGroupListAsync()).then((response) => {
@@ -16,6 +20,11 @@ export const Orders = () => {
 			}
 		});
 	}, [dispatch]);
+
+	if (user.userRole === ROLE.GUEST) {
+		return <Navigate to="/"></Navigate>;
+	}
+
 	return (
 		<div className="content-page">
 			<h2>Списки заказов</h2>

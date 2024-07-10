@@ -100,6 +100,12 @@ export const Header = () => {
 				<div>
 					<i className="bx bxs-contact"></i> <p>контрагенты</p>
 				</div>
+				<div>
+					<i className="bx bxs-user-account"></i> <p>клиенты</p>
+				</div>
+				<div>
+					<i className="bx bxs-car"></i> <p>автомобили</p>
+				</div>
 			</div>
 		</div>
 	);

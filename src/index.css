@@ -130,7 +130,7 @@ body {
 	background-color: #FFFFFF;
 	padding: 10px;
 	width: 100%;
-	min-height: 70vh;
+	height: 70vh;
 	overflow: scroll;
 }
 

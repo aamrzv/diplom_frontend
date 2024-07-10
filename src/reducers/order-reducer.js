@@ -25,6 +25,8 @@ const orderInitialState = {
 
 export const orderReducer = (state = orderInitialState, { type, payload }) => {
 	switch (type) {
+		case ACTION_TYPE.RESET_ORDER_STATE:
+			return orderInitialState;
 		case ACTION_TYPE.SET_ORDER:
 			return payload;
 		case ACTION_TYPE.UPDATE_ORDER_HEADER:

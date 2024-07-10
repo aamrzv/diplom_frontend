@@ -14,7 +14,7 @@ import {
 	ServiceSelectorList,
 } from "../../../components";
 import { ROLE } from "../../../constants/role";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import styles from "./order-creater.module.css";
 
 export const OrderCreater = () => {
@@ -27,6 +27,11 @@ export const OrderCreater = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		dispatch({ type: ACTION_TYPE.RESET_ORDER_STATE });
+	}, [dispatch]);
+
+	useEffect(() => {
+		console.log("SET_PRICES", selectedContractors?.priceGroupId);
 		dispatch(
 			readPricesAsync(ACTION_TYPE.SET_PRICES, {
 				priceGroupId: selectedContractors?.priceGroupId,
@@ -86,7 +91,7 @@ export const OrderCreater = () => {
 	}
 
 	return (
-		<div className={styles.content}>
+		<div className="content-page">
 			<div className={styles.wrapper}>
 				<div>
 					<div>

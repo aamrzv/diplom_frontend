@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useCallback } from "react";
+import { useEffect, useMemo, useCallback, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -15,6 +15,7 @@ import {
 import styles from "./service-selector-list.module.css";
 import { ACTION_TYPE, createOrderAsync, editOrderAsync } from "../../actions";
 import { pricesFilter } from "../../utils";
+import { useScrollToElement } from "../../hooks";
 
 export const ServiceSelectorList = ({ buttonSaveType }) => {
 	const selectorData = useSelector(selectOrderDetail);
@@ -26,6 +27,9 @@ export const ServiceSelectorList = ({ buttonSaveType }) => {
 	const user = useSelector(selectUser);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const addButtonRef = useRef(null);
+
+	useScrollToElement(addButtonRef, selectorData.detail.length);
 
 	const updateOrderHeader = useCallback(() => {
 		dispatch({
@@ -72,7 +76,13 @@ export const ServiceSelectorList = ({ buttonSaveType }) => {
 			type: ACTION_TYPE.SET_ORDER_DETAIL,
 			payload: updatedSelectorData,
 		});
-	}, [dispatch, statePrices, selectedCarGroup, selectedWheelSize]);
+	}, [
+		dispatch,
+		statePrices,
+		selectedCarGroup,
+		selectedWheelSize,
+		selectedCar,
+	]);
 
 	useEffect(() => {
 		updateOrderHeader();
@@ -201,6 +211,7 @@ export const ServiceSelectorList = ({ buttonSaveType }) => {
 			<button
 				className={styles.addBtn}
 				onClick={handleAddServiceSelector}
+				ref={addButtonRef}
 			>
 				<i className="bx bx-plus-medical"></i>Добавить работы
 			</button>
